@@ -1,17 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit() : super(CartState([]));
+  int deliveryOption = 0; // 0 - Доставка, 1 - Самовывоз
+
+  CartCubit() : super(CartState([], 0.0));
 
   void addToCart(Map<String, dynamic> product) {
     final updatedItems = [...state.items, product];
-    emit(CartState(updatedItems));
+    emit(CartState(updatedItems, state.totalPrice + (product["price"] as double? ?? 0)));
   }
 
   void removeFromCart(Map<String, dynamic> product) {
     final updatedItems = [...state.items];
     updatedItems.remove(product);
-    emit(CartState(updatedItems));
+    emit(CartState(updatedItems, state.totalPrice - (product["price"] as double? ?? 0)));
+  }
+
+  void setDeliveryOption(int option) {
+    deliveryOption = option;
+    emit(state);
   }
 
   void incrementItem(Map<String, dynamic> product) {
@@ -21,7 +28,7 @@ class CartCubit extends Cubit<CartState> {
       final updatedProduct = {...product};
       updatedProduct["quantity"] = (updatedProduct["quantity"] ?? 0) + 1;
       updatedItems[index] = updatedProduct;
-      emit(CartState(updatedItems));
+      emit(CartState(updatedItems, state.totalPrice + (updatedProduct["price"] as double? ?? 0)));
     }
   }
 
@@ -34,25 +41,22 @@ class CartCubit extends Cubit<CartState> {
       if (quantity > 1) {
         updatedProduct["quantity"] = quantity - 1;
         updatedItems[index] = updatedProduct;
+        emit(CartState(updatedItems, state.totalPrice - (updatedProduct["price"] as double? ?? 0)));
       } else {
         updatedItems.removeAt(index);
+        emit(CartState(updatedItems, state.totalPrice - (updatedProduct["price"] as double? ?? 0)));
       }
-      emit(CartState(updatedItems));
     }
   }
 
   double get totalPrice {
-    double total = 0;
-    for (final item in state.items) {
-      final quantity = item["quantity"] ?? 1;
-      final price = item["price"] as double ?? 0;
-      total += quantity * price;
-    }
-    return total;
+    return state.totalPrice;
   }
 }
+
 class CartState {
   final List<Map<String, dynamic>> items;
+  final double totalPrice;
 
-  CartState(this.items);
+  CartState(this.items, this.totalPrice);
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sajda_shop/presentation/basket/basket_page.dart';
+import 'package:sajda_shop/presentation/basket/cart_page.dart';
 import 'package:sajda_shop/presentation/chat/chat_page.dart';
 import 'package:sajda_shop/presentation/home/home_page.dart';
 import 'package:sajda_shop/presentation/more/more_page.dart';

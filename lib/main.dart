@@ -5,10 +5,7 @@ import 'package:sajda_shop/presentation/core/main_page.dart';
 
 void main() {
   runApp(
-      // DevicePreview(
-      //   builder: (context) =>
         const MyApp(),
-      //)
   );
 }
 class MyApp extends StatelessWidget {
