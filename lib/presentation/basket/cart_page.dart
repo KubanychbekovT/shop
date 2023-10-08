@@ -189,17 +189,34 @@ class _CartPageState extends State<CartPage> {
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => OrderPage(),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OrderPage(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 22),
+                    ),
+                    child: Text('Подтвердите заказ', style: TextStyle(fontSize: 18),),
+                  ),
                 ),
-              );
-            },
-            child: Text('Подтвердите заказ'),
+              ),
+            ],
           ),
+          SizedBox(height: 30),
         ],
       ),
     );
