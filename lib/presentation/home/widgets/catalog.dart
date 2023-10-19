@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../data/data.dart';
 
 Widget catalog(double w) {
   return Container(
@@ -10,7 +9,7 @@ Widget catalog(double w) {
       child: Row(
         children: [
           ...List.generate(
-            brandes.length,
+            [].length,
                 (index) {
               if (index == 0) {
                 return Container(
@@ -34,7 +33,7 @@ Widget catalog(double w) {
                   height: 40, // Высота контейнера
                   child: Center(
                     child: Text(
-                      brandes[index]["lable"],
+                      [][index]["lable"],
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),

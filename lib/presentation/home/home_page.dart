@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:sajda_shop/domain/cart/cart_cubit.dart';
+import 'package:sajda_shop/application/cart/cart_cubit.dart';
 import 'package:sajda_shop/presentation/core/widgets/custom_app_bar.dart';
 import 'package:sajda_shop/presentation/home/drawer_page.dart';
 import 'package:sajda_shop/presentation/home/order_details_page.dart';
 import 'package:sajda_shop/presentation/home/widgets/card.dart';
 import 'package:sajda_shop/presentation/home/widgets/catalog.dart';
 import 'package:sajda_shop/presentation/home/widgets/news_widgets.dart';
-import '../../data/data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -62,9 +61,9 @@ class _HomePageState extends State<HomePage> {
                       crossAxisSpacing: 4,
                       children: [
                         ...List.generate(
-                            products.length,
+                            [].length,
                             (index) => ProductCard(
-                                  product: products[index],
+                                  product: [][index],
                                   onTap: (product) {
                                     Navigator.push(
                                       context,

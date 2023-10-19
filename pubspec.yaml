@@ -47,6 +47,9 @@ dependencies:
   http: ^1.1.0
   intl: ^0.18.1
   adhan_dart: ^1.0.8
+  dio: ^5.3.3
+  shared_preferences: ^2.2.2
+
 
 
 dev_dependencies:
