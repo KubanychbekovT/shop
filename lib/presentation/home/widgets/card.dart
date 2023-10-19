@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sajda_shop/domain/user/product.dart';
 
 class ProductCard extends StatelessWidget {
-  final Map<String, dynamic> product;
+  final Product product;
   final Function onTap;
   final Function onAddToCart;
 
@@ -44,7 +45,7 @@ class ProductCard extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Hero(
-                      tag: "${product["name"]}",
+                      tag: "${product.name}",
                       child: ClipRRect(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(20),
@@ -53,7 +54,7 @@ class ProductCard extends StatelessWidget {
                           height: 180,
                           width: double.infinity,
                           child: Image.asset(
-                            product["image"],
+                            product.imgArray.first, // Use the product's image property here
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -75,7 +76,7 @@ class ProductCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 4),
                         child: Text(
-                          product["name"],
+                          product.name, // Use the product's name property here
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 17,
@@ -88,7 +89,7 @@ class ProductCard extends StatelessWidget {
                         child: Row(
                           children: [
                             Text(
-                              "${product["price"].toString()} KGS",
+                              "${product.price.toString()} KGS", // Use the product's price property here
                               style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
