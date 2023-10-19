@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:sajda_shop/domain/user/product.dart';
 
 class DetailsPage extends StatefulWidget {
-  final Map? data;
-  //final String? hero;
-  const DetailsPage({Key? key, required this.data, });
+  final Product data;
+  DetailsPage({required this.data});
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  int sizeSelected = 1;
-
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 60),
@@ -53,37 +52,22 @@ class _DetailsPageState extends State<DetailsPage> {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  // Hero(
-                  //   tag: widget.hero!,
-                  //   child: Container(
-                  //     height: 350,
-                  //     color: Colors.black,
-                  //     width: w,
-                  //     child: InteractiveViewer(
-                  //       child: Image.network(widget.data!["image"]),
-                  //     ),
-                  //   ),
-                  // ),
+                  // Здесь вы можете добавить изображение продукта, если оно есть
                   const SizedBox(height: 10),
                   Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 10),
+                      horizontal: 14,
+                      vertical: 10,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "${widget.data!["name"]}",
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
+                        Text(
+                          "${widget.data.name}",
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(height: 10),
                         const Text(
@@ -95,7 +79,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "${widget.data!["descripstion"]}",
+                          "${widget.data.description}",
                           style: const TextStyle(
                             fontSize: 18,
                           ),
@@ -120,16 +104,3 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-//
-// class DetailsPage extends StatelessWidget {
-//   const DetailsPage({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.teal,
-//     );
-//   }
-// }

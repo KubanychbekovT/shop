@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sajda_shop/domain/user/product.dart';
+import 'package:sajda_shop/presentation/home/widgets/news_widgets.dart';
 import 'package:sajda_shop/repository/core/constants.dart';
+
+import '../order_details_page.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -12,7 +15,13 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(product),
+      onTap: () {
+        final productData = {
+          'name': product.name,
+          'description': product.description,
+        };
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(data: product)));
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -29,7 +38,7 @@ class ProductCard extends StatelessWidget {
               Radius.circular(20),
             ),
           ),
-          height: 280,
+          height: 320,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
