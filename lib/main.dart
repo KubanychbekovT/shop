@@ -7,6 +7,7 @@ import 'package:sajda_shop/repository/get_it/get_it_initializer.dart';
 import 'package:sajda_shop/repository/product/product_repository.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   await getItSetup();
   runApp(
         const MyApp(),

@@ -48,7 +48,6 @@ class _HomePageState extends State<HomePage> {
       );
     } else if (state is ProductLoaded) {
       final productList = state.productList;
-
     return SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: [

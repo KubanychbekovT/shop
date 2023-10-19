@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sajda_shop/domain/user/product.dart';
+import 'package:sajda_shop/repository/core/constants.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -53,8 +54,8 @@ class ProductCard extends StatelessWidget {
                         child: SizedBox(
                           height: 180,
                           width: double.infinity,
-                          child: Image.asset(
-                            product.imgArray.first, // Use the product's image property here
+                          child: Image.network(
+                            "${Constants.serverBaseUrl}/${product.img}", // Use the product's image property here
                             fit: BoxFit.cover,
                           ),
                         ),
