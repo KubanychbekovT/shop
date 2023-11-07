@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1003678360304-aiv3j4uk468r97v6fav4pg4d33ikm8qh.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBx5LPU6BK-eVR12vCgdO8qeC8syEdQ_CQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1003678360304</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.sajdaShop</string>
+	<key>PROJECT_ID</key>
+	<string>loygift-fa506</string>
+	<key>STORAGE_BUCKET</key>
+	<string>loygift-fa506.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1003678360304:ios:e1454d5792bdb8fb045835</string>
+</dict>
+</plist>

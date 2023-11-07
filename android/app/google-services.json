@@ -1,0 +1,198 @@
+{
+  "project_info": {
+    "project_number": "1003678360304",
+    "project_id": "loygift-fa506",
+    "storage_bucket": "loygift-fa506.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003678360304:android:d890db57b0aaa435045835",
+        "android_client_info": {
+          "package_name": "com.adamant.loygift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgDsWteEcCxM5nI84mzOq6Fhde_jJHXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003678360304-jkudki9hti1879r9cc4isd2k3otnbe25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sajdaShop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003678360304:android:640811955169b2dc045835",
+        "android_client_info": {
+          "package_name": "com.atc.loygift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003678360304-puotk76mq4uqdrsrr8as0cc0806jptqh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.atc.loygift",
+            "certificate_hash": "b14dfee0af7f1b45403e0e8db87976e6bb7c45e3"
+          }
+        },
+        {
+          "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgDsWteEcCxM5nI84mzOq6Fhde_jJHXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003678360304-jkudki9hti1879r9cc4isd2k3otnbe25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sajdaShop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003678360304:android:cdec555f1fd8b351045835",
+        "android_client_info": {
+          "package_name": "com.denttrade.loygift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgDsWteEcCxM5nI84mzOq6Fhde_jJHXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003678360304-jkudki9hti1879r9cc4isd2k3otnbe25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sajdaShop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003678360304:android:01022cc9299919cd045835",
+        "android_client_info": {
+          "package_name": "com.sajda.loygift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgDsWteEcCxM5nI84mzOq6Fhde_jJHXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003678360304-jkudki9hti1879r9cc4isd2k3otnbe25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sajdaShop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003678360304:android:a642a755de54b2bf045835",
+        "android_client_info": {
+          "package_name": "com.twelvekamin.loygift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgDsWteEcCxM5nI84mzOq6Fhde_jJHXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003678360304-2hgm21udps289295phi9opt1damcgij7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003678360304-jkudki9hti1879r9cc4isd2k3otnbe25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sajdaShop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sajda_shop/domain/user/product.dart';
+import 'package:sajda_shop/domain/product/product.dart';
 import 'package:sajda_shop/repository/product/product_repository.dart';
 
 abstract class ProductState {}
@@ -24,10 +24,10 @@ class ProductCubit extends Cubit<ProductState> {
 
   void loadProducts() {
     emit(ProductLoading());
-
     productRepository.getProductList().then((productList) {
       emit(ProductLoaded(productList));
-    }).catchError((error) {
+    }).catchError((error,stack) {
+      print(stack);
       emit(ProductError('Failed to load products: $error'));
     });
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sajda_shop/presentation/profile/profile_page.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String title;
@@ -8,20 +9,16 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Builder(
-        builder: (BuildContext context) {
-          return IconButton(
+      leading: IconButton(
             icon: const Icon(
               Icons.person_outline_outlined,
               color: Colors.black,
               size: 32,
             ),
             onPressed: () {
-              Scaffold.of(context).openDrawer();
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProfilePage()));
             },
-          );
-        },
-      ),
+          ),
       actions: [
         IconButton(
           splashRadius: 22,
@@ -39,7 +36,7 @@ class CustomAppBar extends StatelessWidget {
           Center(
             child: Text(
               title, // Используйте параметр title здесь
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
               ),
             ),

@@ -1,18 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:sajda_shop/application/cart/cart_cubit.dart';
-import 'package:sajda_shop/application/product/product_cubit.dart';
-import 'package:sajda_shop/presentation/core/widgets/custom_app_bar.dart';
-import 'package:sajda_shop/presentation/home/drawer_page.dart';
-import 'package:sajda_shop/presentation/home/widgets/card.dart';
-import 'package:sajda_shop/presentation/home/widgets/catalog.dart';
-import 'package:sajda_shop/presentation/home/widgets/news_widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sajda_shop/application/navigation/navigation_manager_cubit.dart';
+import 'package:sajda_shop/application/profile/profile_manager_cubit.dart';
+import 'package:sajda_shop/presentation/auth/sign_in_page.dart';
+import 'package:sajda_shop/presentation/core/widgets/custom_scaffold.dart';
+import 'package:sajda_shop/presentation/home/widgets/bestseller_product_list_view_horizontal.dart';
+import 'package:sajda_shop/presentation/home/widgets/bonus_card_widget.dart';
+import 'package:sajda_shop/presentation/home/widgets/category_overview_widget.dart';
+import 'package:sajda_shop/presentation/home/widgets/profile_circle_avatar.dart';
+import 'package:sajda_shop/presentation/home/widgets/recommended_product_list_view_horizontal.dart';
+import 'package:sajda_shop/presentation/home/widgets/section_header.dart';
+import 'package:sajda_shop/presentation/home/widgets/trailing_notification_icon.dart';
+import 'package:sajda_shop/presentation/news/news_overview_page.dart';
+import 'package:sajda_shop/presentation/news/widgets/news_carousel.dart';
+import 'package:sajda_shop/presentation/profile/profile_page.dart';
+import 'package:sajda_shop/repository/core/token_storage.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -20,85 +27,129 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    super.initState();
-    context.read<ProductCubit>().loadProducts();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final cartCubit = context.read<CartCubit>();
-    final productCubit = context.read<ProductCubit>();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ));
+    return CustomScaffold(
+      body: Stack(
+        children: [
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(color: Color(0xff0E144A)),
+          ),
+          ListView(
+            children: [
+              // const SafeArea(child: SearchField()),
+              SafeArea(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16),
+                  child: BlocBuilder<ProfileManagerCubit, ProfileManagerState>(
+                    builder: (context, state) {
+                      final user = state.user;
+                      return SizedBox(
+                        height: 40,
+                        child: Row(
+                          children: [
+                            const ProfileCircleAvatar(),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            SizedBox(
+                              height: 32,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    (user != null) ? "С возвращением!" : "",
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                  Text(
+                                    user?.name ?? "",
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            SvgPicture.asset(
+                              "assets/images/search_catalog.svg",
+                              color: Colors.white,
+                            ),
+                            const TrailingNotificationIcon(iconColor: Colors.white,),
 
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-    return Scaffold(
-      drawer: DrawerPage(),
-      appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, 60),
-        child: CustomAppBar(
-          title: 'Sajda',
-        ),
-      ),
-      body: BlocBuilder<ProductCubit, ProductState>(
-        builder: (context, state) {
-          if (state is ProductLoading) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is ProductLoaded) {
-            final productList = state.productList;
-            return SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  NewsWidget(),
-                  const SizedBox(height: 12),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Каталог',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
-                  catalog(w),
-                  const SizedBox(height: 15),
-                  SizedBox(
-                    width: w * 0.95,
-                    child: StaggeredGrid.count(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 4,
-                      children: productList.map((product) {
-                        return ProductCard(
-                          product: product,
-                          onTap: (product) {},
-                          onAddToCart: (product) {
-                            cartCubit.addToCart(product);
-                          },
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            );
-          } else if (state is ProductError) {
-            return Center(
-              child: Text('Error: ${state.error}'),
-            );
-          }
+              const SizedBox(
+                height: 12,
+              ),
+              const BonusCardWidget(),
+              const SizedBox(
+                height: 32,
+              ),
 
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        },
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20))),
+                child:  Column(
+                  children: [
+                    SectionHeader(
+                        sectionName: "Каталог",onWatchAllTapped: (){
+                          context.read<NavigationManagerCubit>().setBottomNavigationSelectedIndex(1);
+                    },),
+                    const CategoryOverviewWidget(),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    const SectionHeader(
+                        sectionName: "Новости и акции",
+                        watchAllDestinationWidget: NewsOverviewPage()),
+                    const NewsCarousel(),
+                    const SizedBox(height: 24),
+                    const SectionHeader(
+                        sectionName: "Рекомендуемые",
+                        watchAllDestinationWidget: NewsOverviewPage()),
+                    const RecommendedProductListView(),
+                    const SectionHeader(
+                        sectionName: "Хиты продаж",
+                        watchAllDestinationWidget: NewsOverviewPage()),
+                    const BestsellerProductListView(),
+                    const SizedBox(height: 24),
+                    const SectionHeader(
+                        sectionName: "Акционные товары",
+                        watchAllDestinationWidget: NewsOverviewPage()),
+                    const RecommendedProductListView(),
+                    const SizedBox(
+                      height: 40,
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
